@@ -20,8 +20,6 @@ def init(cityId):
         cityId+"&units=metric&appid=244df0cbb2bcae2bca2fbe929ae3a613"
     data = requests.get(connectionString).json()
 
-# Defining a HTTP request Handler class
-
 
 class ServiceHandler(BaseHTTPRequestHandler):
     # sets basic headers for the server
@@ -39,9 +37,9 @@ class ServiceHandler(BaseHTTPRequestHandler):
     ######
     #LIST#
     ######
-    # GET Method Defination
+    # GET Method Definition
     def do_GET(self):
-        # defining all the headers
+        #obtain user input for cityID
         temp = self._set_headers()
         init(temp)
 
