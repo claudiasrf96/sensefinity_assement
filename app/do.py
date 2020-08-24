@@ -8,10 +8,12 @@ app=Flask(__name__)
 def index():
     return "Welcome to your local host"
 
-@app.route("/<int:city_id>", methods=['GET'])
+@app.route("/weather/city/<int:city_id>", methods=['GET'])
 def get_city(city_id):
     connectionString = "https://api.openweathermap.org//data/2.5/weather?id="+str(city_id)+"&units=metric&appid=244df0cbb2bcae2bca2fbe929ae3a613"
     return requests.get(connectionString).json()
 
+    #http://localhost:5656
+
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=3636)
+    app.run(host='0.0.0.0', port=5656)
